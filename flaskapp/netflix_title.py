@@ -5,7 +5,7 @@ from flaskapp.models import Netflix, NetflixSchema
 from flaskapp.config import app, db
 
 
-# Init Schema
+# Init Marshmallow Schemas
 netflix_title_schema = NetflixSchema()
 netflix_titles_schema = NetflixSchema(many=True)
 
