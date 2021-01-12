@@ -68,11 +68,11 @@ def get_netflix_titles():
 
     if filter_by_field and search:
         try:
-            filter_by_field = getattr(Netflix, filter_by_field)
+            getattr(Netflix, filter_by_field)
         except AttributeError as e:
             logging.exception("filter_by_field passed is not a valid column in Netflix Model: %s", e)
             raise HandleException('filter_by_field passed is not a valid column in Netflix Model', status_code=400)
-        filter_by_condition = '{} like \'%{}%\''.format(filter_by_field, search)
+        filter_by_condition = 'netflix.{} like \'%{}%\''.format(filter_by_field, search)
         netflix_titles_query = netflix_titles_query.filter(text(filter_by_condition))
     elif search:
         search = '%{}%'.format(search)
