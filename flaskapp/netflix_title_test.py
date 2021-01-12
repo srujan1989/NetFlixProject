@@ -69,6 +69,10 @@ class NetflixTitleTest(unittest.TestCase):
         self.assertEqual(
             {"message": "If you are filtering according to a column specify search criteria with search QS param"},
             json.loads(response.data))
+        response = self.app.get("/netflix?filter_by_field=director1&search=Fer")
+        self.assertEqual(
+            {"message": "filter_by_field passed is not a valid column in Netflix Model"},
+            json.loads(response.data))
 
     def test_error_sort_by_field(self):
         response = self.app.get("/netflix?sort_by_field=director1")
