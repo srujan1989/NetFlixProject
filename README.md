@@ -33,7 +33,7 @@ _**Example for running the unit tests in local:**_
 4) sort_by_field - Used to sort records based on a specific column in Netflix Model. By default if nothing is passed would pickup show_id for sorting.
 5) sort_order - Sort order expected. By default it would sort ascending.
 
-**Sample URL Example** - https://netflix-titles-301202.uc.r.appspot.com/netflix?search=Preeti&filter_by_field=cast&sort_by_field=release_year&sort_order=desc
+**Sample URL Example** - https://<project_id>.uc.r.appspot.com/netflix?search=Preeti&filter_by_field=cast&sort_by_field=release_year&sort_order=desc
 
 ## POST or Creating/Inserting the data 
 - https://{hostname}/netflix
