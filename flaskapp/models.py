@@ -1,7 +1,7 @@
 from flaskapp.config import db, ma
 
 
-# Netflix Model Class
+# Netflix Model Class.
 class Netflix(db.Model):
     show_id = db.Column(db.Integer, primary_key=True)
     show_type = db.Column(db.String(50))
@@ -32,7 +32,7 @@ class Netflix(db.Model):
         self.description = description
 
 
-# Netflix Schema Class
+# Netflix Schema Class.
 class NetflixSchema(ma.Schema):
     class Meta:
         fields = ('show_id', 'show_type', 'title', 'director', 'cast', 'country', 'date_added', 'release_year',

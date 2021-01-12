@@ -3,21 +3,21 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
 
-# Init app
+# Initialize Flask app.
 app = Flask(__name__)
 
-# Database
+# Database URI
 if os.environ.get('GAE_INSTANCE'):
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://<username>:<password>@localhost/netflix?unix_socket=/cloudsql/<connection_name>"
 else:
-    basedir = os.path.abspath(os.path.dirname(__file__))
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
+    # Used for unit/integration tests.
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Init DB
+# Initialize DB.
 db = SQLAlchemy(app)
 
-# Init Marshmallow
+# Initialize Marshmallow.
 ma = Marshmallow(app)
